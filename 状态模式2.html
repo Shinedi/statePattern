@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <script>
+        var resultState=function(){
+            var state={
+                state0:function(){
+                  console.log('带上0，去旅行');
+                },
+                state1:function(){
+                    console.log('不怕日晒，自由自在');
+                }
+            };
+            function show(result){
+                state['state'+result]&&state['state'+result]();
+            }
+            return {
+                show:show
+            }
+        };
+        resultState().show(1);
+//        var state=new resultState();
+//        state.show(0);
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>策略模式</title>
+</head>
+<body>
+<script>
+    //价格策略对象
+    var PriceStrategy=function(){
+        //内部算法对象
+        var stragtegy={
+            return30:function(price){
+                //100返30
+                return price+parseInt(price/100)*30;
+            },
+            return90:function(price){
+                //9折
+                return price*100*90/10000;
+            },
+            return80:function(price){
+                //8折
+                return price*100*80/10000;
+            },
+            return50:function(price){
+                //5折
+                return price*100*50/10000;
+            }
+
+        };
+        //策略算法调用接口
+        return function(algorithm,price){
+            //如果算法存在，则调用算法，否则返回false
+            return stragtegy[algorithm] && stragtegy[algorithm](price)
+        }
+    }();
+    //策略应用
+
+    var price=PriceStrategy('return80','345.67');
+    console.log(price);
+
+
+</script>
+
+</body>
+</html>
